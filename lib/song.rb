@@ -9,14 +9,11 @@ class Song
   end
 
   def save
-    @name = name
-    @artist_name = artist_name
     self.class.all << self
   end
 
   def self.create
     song_variable = self.new
-    #@@all << song
     song_variable.save
     song_variable
   end
@@ -28,14 +25,9 @@ class Song
   end
   
   def self.create_by_name(song_name)
-    song_variable = self.new
+    song_variable = self.create
     song_variable.name = song_name
-    song_variable.save
     song_variable
-  end
-  
-  def name=(song_name)
-    @name = song_name
   end
   
   def self.find_by_name(song_name)
